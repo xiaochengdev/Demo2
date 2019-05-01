@@ -1,0 +1,59 @@
+.title{
+    background-color: antiquewhite;
+    width: 1600px;
+    height: 100px;
+    padding-top: 30px;
+    padding-left: 10px;
+    font-size: medium;
+    font-style: normal;
+    text-align: left;
+}
+
+.daohang{
+    background-color: floralwhite;
+    width: 1600px;
+    height: 30px;
+    padding: 5px;
+}
+.mainNav {
+    top: 68px;
+    left: 0;
+    height: 30px;
+    line-height: 30px;
+    width: 1600px;
+    z-index:100;
+}
+
+.mainNav .nav {
+    display: inline;
+    float: left;
+    margin-left: 20px;
+    line-height: 25px;
+    text-align: center;
+}
+.mainNav ul li {
+    float:left;
+    display: inline;
+    margin-right:30px;
+    position: relative ;
+    z-index:100;
+    font-size: 25px;
+}
+
+.main{
+    width: 1600px;
+    height: 600px;
+    background-color: gainsboro;
+}
+
+.personinfo{
+    width: 150px;
+    height: 200px;
+    margin: 10px;
+    background-color: aquamarine;
+}
+
+.hover{
+    display: block;
+    background-color: lightgray;
+}

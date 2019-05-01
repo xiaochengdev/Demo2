@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="spring-core-4.3.6">
+    <CLASSES>
+      <root url="jar://D:/framework/spring-framework-4.3.6.RELEASE/libs/spring-aspects-4.3.6.RELEASE.jar!/" />
+      <root url="jar://D:/framework/spring-framework-4.3.6.RELEASE/libs/spring-core-4.3.6.RELEASE.jar!/" />
+      <root url="jar://D:/framework/spring-framework-4.3.6.RELEASE/libs/spring-aop-4.3.6.RELEASE.jar!/" />
+      <root url="jar://D:/framework/spring-framework-4.3.6.RELEASE/libs/spring-expression-4.3.6.RELEASE.jar!/" />
+      <root url="jar://D:/framework/spring-framework-4.3.6.RELEASE/libs/spring-context-4.3.6.RELEASE.jar!/" />
+      <root url="jar://D:/framework/spring-framework-4.3.6.RELEASE/libs/spring-beans-4.3.6.RELEASE.jar!/" />
+      <root url="jar://D:/framework/spring-framework-4.3.6.RELEASE/libs/spring-orm-4.3.6.RELEASE.jar!/" />
+      <root url="jar://D:/framework/spring-framework-4.3.6.RELEASE/libs/spring-tx-4.3.6.RELEASE.jar!/" />
+      <root url="jar://D:/framework/spring-framework-4.3.6.RELEASE/libs/spring-web-4.3.6.RELEASE.jar!/" />
+      <root url="jar://D:/framework/spring-framework-4.3.6.RELEASE/libs/spring-jdbc-4.3.6.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

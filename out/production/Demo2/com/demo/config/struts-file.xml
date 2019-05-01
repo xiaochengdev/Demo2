@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="file" namespace="/file" extends="json-default">
+        <interceptors>
+            <interceptor name="EncodingInterceptor" class="com.demo.interceptors.EncodingInterceptor"/>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="EncodingInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myStack"/>
+        <global-allowed-methods>uploadFile,downloadFile,downloadFileList,uploadHeadPhoto</global-allowed-methods>
+        <action name="file_*" class="com.demo.action.FileAction" method="{1}">
+            <result name="uploadfile" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="download" type="stream">
+                <param name="contentType">${fileContentType}</param>
+                <param name="contentDisposition">attachment;filename=${selectedFile}</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <result name="filelist" type="dispatcher">/jsp/imgwall.jsp</result>
+            <result name="error" type="dispatcher">/jsp/error.jsp</result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Demo2:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Demo2_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Demo2/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Demo2" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Struts 2-2.5.14.1" />
+          <element id="library" level="project" name="spring-core-4.3.6" />
+          <element id="library" level="project" name="hibernate-core-5.2.10" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

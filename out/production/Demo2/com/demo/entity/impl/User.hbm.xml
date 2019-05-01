@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.demo.entity">
+
+    <class name="com.demo.entity.impl.User" table="user">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="account" type="string" column="account"/>
+        <property name="name" type="string" column="name"/>
+        <property name="passwd" type="string" column="passwd"/>
+        <property name="sex" type="string" column="sex"/>
+        <property name="des" type="string" column="des"/>
+        <property name="headpicture" type="string" column="headpicture"/>
+        <set name="friendSet" cascade="save-update" lazy="false">
+            <key column="uid"></key>
+            <one-to-many class="com.demo.entity.impl.Friend"/>
+        </set>
+
+
+       <!-- <list name="friendSet"  cascade="all">
+            &lt;!&ndash; 维护对方的外键 &ndash;&gt;
+            <key column="uid"></key>
+            &lt;!&ndash; index标签表示多的一方 对应一的一方的索引位置
+                column属性表示数据库中存放数据的字段
+                index为关键字 避免跟关键字冲突 使用`index` 或 [index]
+            &ndash;&gt;
+            <index column="[index]" type="string"></index>
+            &lt;!&ndash; 建立一对多的关联 &ndash;&gt;
+            <one-to-many class="com.demo.entity.impl.Friend" />
+        </list>-->
+    </class>
+
+</hibernate-mapping>

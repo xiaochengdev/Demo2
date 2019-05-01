@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="json" namespace="/json" extends="json-default,struts-default">
+        <interceptors>
+            <interceptor name="LoginInterceptor" class="com.demo.interceptors.LoginInterceptor"/>
+            <interceptor name="EncodingInterceptor" class="com.demo.interceptors.EncodingInterceptor"/>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="EncodingInterceptor"/>
+                <interceptor-ref name="LoginInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myStack"/>
+
+        <global-allowed-methods>login,register,update,delete,queryUsers,downloadFile,uploadFile,getLoginUser,logout</global-allowed-methods>
+
+        <action name="user_*" class="com.demo.action.UserAction" method="{1}">
+            <result name="login" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="register" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="update" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="delete" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="queryusers" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="logout" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        
+        <!--<action name="file_*" class="com.demo.action.FileAction" method="{1}">
+            <result name="uploadfile" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="downloadfile" type="stream">
+                <param name="contentType">${fileContentType}</param>
+                <param name="contentDiposition">attachment;filename=${fileFileName}</param>
+                <param name="inputName">file</param>
+            </result>
+        </action>-->
+
+    </package>
+</struts>

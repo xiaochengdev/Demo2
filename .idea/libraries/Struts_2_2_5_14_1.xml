@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="Struts 2-2.5.14.1" type="struts2">
+    <properties version="2.5.14.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.7-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.6-bin.jar!/" />
+      <root url="jar://D:/Tomcat/lib/servlet-api.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/commons-beanutils-1.9.2.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/commons-collections-3.2.1.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/commons-fileupload-1.3.2.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/commons-io-2.4.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/commons-lang3-3.4.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/commons-logging-1.1.3.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/freemarker-2.3.23.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/json-lib-2.3-jdk15.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/log4j-api-2.7.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/ognl-3.1.12.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/struts2-json-plugin-2.5.10.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/struts2-spring-plugin-2.5.10.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/slf4j-api-1.7.12.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/javassist-3.20.0-GA.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/xstream-1.4.8.jar!/" />
+      <root url="jar://D:/framework/struts-2.5.10-all/struts-2.5.10/lib/struts2-core-2.5.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/aspectjweaver-1.8.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

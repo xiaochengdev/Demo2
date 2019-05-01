@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="user" namespace="/user" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="EncodingInterceptor" class="com.demo.interceptors.EncodingInterceptor"/>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="EncodingInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myStack"/>
+        <global-allowed-methods>login,register,update,delete,test</global-allowed-methods>
+        <action name="user_*" class="com.demo.action.UserAction" method="{1}">
+            <result name="login" type="dispatcher">/jsp/main.jsp</result>
+            <result name="register" type="chain">user_login</result>
+            <result name="update" type="dispatcher">/jsp/main.jsp</result>
+            <result name="delete" type="redirect">/index.jsp</result>
+            <result name="error" type="dispatcher">/jsp/error.jsp</result>
+            <result name="success" type="dispatcher">/index.jsp</result>
+        </action>
+    </package>
+</struts>

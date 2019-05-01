@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="friend" namespace="/friend" extends="json-default">
+        <interceptors>
+            <interceptor name="LoginInterceptor" class="com.demo.interceptors.LoginInterceptor"/>
+            <interceptor name="EncodingInterceptor" class="com.demo.interceptors.EncodingInterceptor"/>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="EncodingInterceptor"/>
+                <interceptor-ref name="LoginInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myStack"/>
+        <global-allowed-methods>findFriendByFid,add,update,delete,queryFriends</global-allowed-methods>
+        <action name="friend_*" class="com.demo.action.FriendAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+    </package>
+</struts>

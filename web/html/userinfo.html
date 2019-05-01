@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="user" style="display:none;border: gray 1px solid;padding: 2px;text-align:center;
+        width: 230px;margin-top: 30px;margin-left: 50px;float: left">
+    <img src="http://localhost:8080/Demo2/image/卡牌大师.jpg" width="220px" height="200px" id="photo">
+    <div style="display: none">
+        <form  action="http://localhost:8080/Demo2/file/file_uploadHeadPhoto" method="POST" enctype="multipart/form-data">
+            <input type="file"  name="file" id="file_selected"/>
+            <input type="button" id="photo_upload" value="上传">
+        </form>
+    </div>
+    <table style="border: gray 1px solid;width: 100%;margin-top: 5px;margin-top:5px">
+        <tr>
+            <td>姓 名</td><td><span id="user_name"></span></td>
+        </tr>
+        <tr>
+            <td>性 別</td><td><span id="user_sex"></span></td>
+        </tr>
+        <tr>
+            <td style="collapse: 2"><a href="#" style="text-decoration: none" id="logout">退出</a></td>
+        </tr>
+    </table>
+</div>
+<div style="float:left;width: 1250px;margin-left:40px;border:green 1px solid ">
+    <h1><span id="user_des"></span></h1>
+</div>
+<script>
+    $(function(){
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/Demo2/json/user_getLoginUser",
+            dataType: "json",
+            success : function(data){
+                var json=eval(data);
+                if(json.resCode==1) {
+                    $("#user_name").text(json.user.name);
+                    if (json.user.sex == 1) {
+                        $("#user_sex").text("男");
+                    }else {
+                        $("#user_sex").text("女");
+                    }
+                    $("#user_des").text(json.user.des);
+                    $("#user").css("display","block");
+                    $("#menu").css("display","block");
+                    $("#photo").attr("src",json.user.headpicture);
+                }else{
+                    $("#user").css("display","none");
+                    alert("无用戶信息");
+                    window.parent.location.href="http://localhost:8080/Demo2/";
+                }
+            }
+        });
+        $("#menu").click(function () {
+            $(this).next().toggle();
+        });
+        $("#photo").click(function () {
+            $(this).next().toggle();
+        });
+       $("#photo_upload").click(function () {
+           var path=$("#file_selected").val();
+           if (path!=''){
+               $("form").submit();
+           } else {
+               alert("未选择图片");
+           }
+
+        });
+
+       $("#logout").click(function () {
+           $.ajax({
+               type: "POST",
+               url: "http://localhost:8080/Demo2/json/user_logout",
+               traditional: true,
+               dataType: "json",
+               success:function (data) {
+                   var json = eval(data);
+                   if (json.resCode == 1) {
+                       alert(json.message);
+                       window.parent.location.href="http://localhost:8080/Demo2/";
+                   } else {
+                       alert(json.message);
+                   }
+               }
+           });
+       });
+        $("#file_selected").change(function () {
+            //alert($("#file_selected").val());
+            $("#photo").attr("src",$("#file_selected").val());
+            var $file = $(this);
+            var fileObj = $file[0];
+            var windowURL = window.URL || window.webkitURL;
+            var dataURL;
+            var $img = $("#photo");
+
+            if (fileObj && fileObj.files && fileObj.files[0]) {
+                dataURL = windowURL.createObjectURL(fileObj.files[0]);
+                $img.attr('src', dataURL);
+            } else {
+                dataURL = $file.val();
+                var imgObj = document.getElementById("photo");
+                // 两个坑:
+                // 1、在设置filter属性时，元素必须已经存在在DOM树中，动态创建的Node，也需要在设置属性前加入到DOM中，先设置属性在加入，无效；
+                // 2、src属性需要像下面的方式添加，上面的两种方式添加，无效；
+                imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+
+            }
+        });
+    })
+</script>
+</body>
+</html>
